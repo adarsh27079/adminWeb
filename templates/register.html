@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+.text-center h4{
+  border-bottom:1px solid black;
+  padding:1rem;
+}  
+.form-group{
+  margin:5px;
+}
+.form-outer-div{
+  max-width:45rem;
+  box-shadow:1px 1px 8px 3px #e2dfe6;
+  border-radius:10px;
+  padding:10px;
+}
+.form-outer-div p{
+  border-bottom:1px solid grey;
+  margin:10px 10px;
+}
+.btn-custum-class{
+  margin: 20px 5px;
+}
+</style>
+
+{% endblock css %}
+
+{% block body %}
+
+<div class=" container form-outer-div">
+   <header class="text-center">
+      <h4>Registration Form</h4>
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
+   </header>
+     <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+       <p>Personal Details</p>
+        <div class="form-group">
+           <label for=""><strong>Candidate's Name</strong> <br>(As per class X or Equivalent Certificate)</label>
+           <input type="text" class="form-control" id="" name="studentName" placeholder="Enter Candidate's Name" required>
+         </div>
+         <div class="form-group">
+           <label for=""><strong>Father's Name</strong></label>
+           <input type="text" class="form-control" id="" name="fathersName" placeholder="Enter Father's Name" required>
+         </div>
+         <div class="form-group">
+           <label for=""><strong>Mother's Name</strong> </label>
+           <input type="text" class="form-control" id="" name="mothersName" placeholder="Enter Mother's Name" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Candidate's Date of Birth</strong></label>
+           <input type="date" class="form-control" id="" name="dob" placeholder="Enter Candidate's Name" required>
+         </div>
+        <div class="form-group">
+           <label for="exampleFormControlSelect1"><strong>Gender</strong></label>
+           <select class="form-control" id="" name="gender"  required>
+             <option>Select</option>
+             <option>Male</option>
+             <option>Female</option>
+             <option>Third Gender</option>
+           </select>
+         </div>
+        <div class="form-group">
+           <label for="exampleFormControlSelect1"><strong>Identity Type</strong></label>
+           <select class="form-control" id="" name="identity" required>
+             <option>Select</option>
+             <option>Pan card</option>
+             <option>Aadhaar</option>
+             <option>Voter Id</option>
+             <option>Any Other Id</option>
+           </select>
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Valid Id Number</strong></label>
+           <input type="text" class="form-control" id="" name="idNum" placeholder="Enter Valid Identification Number" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Email Address</strong></label>
+           <input type="email" class="form-control" id=""  placeholder="Enter Email Address" name="email" required>
+         </div>
+        <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Confirm Email Address</strong></label>
+           <input type="email" class="form-control" id="" name="confEmail" placeholder="confirm Email Address" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Mobile Number</strong></label>
+           <input type="number" class="form-control" id="" name="mobileNum" placeholder="Enter Mobile Number" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Confirm Mobile Number</strong></label>
+           <input type="number" class="form-control" id="" name="confMobile" placeholder="Confirm Mobile Number" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleFormControlSelect1"><strong>Choose Course</strong></label>
+           <select class="form-control" id="" name="selectedCourse" required>
+             <option>Select</option>
+             <option>B.A (H) English</option>
+             <option>B.A(prog)</option>
+             <option>B.Com (H)</option>
+             <option>BMS</option>
+             <option>B.Sc (H) Computer Science</option>
+             <option>B.Sc (H) Physics</option>
+             <option>B.Sc (H) Mathematics</option>
+             <option>B.Sc Mathematical Science</option>
+             <option>B.Sc (H) Electronics</option>
+             <option>B.Sc (H) Botany</option>
+             <option>B.Sc (H) Chemistry</option>
+             <option>B.Sc (H) Zoology</option>
+             <option>B.Sc Physical science(Computer Science)</option>
+             <option>B.Sc Physical science(Chemistry)</option>
+           </select>
+         </div>
+         <p>Choose Password <br>(Password must be of 8-13 characters, must have one special character,<br> one upper case character,one lower case character one numeric value.)</p>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Password</strong> (Minimum 8 characters)</label>
+           <input type="password" class="form-control" id="" name="password" placeholder="Enter Password" required>
+         </div> 
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>Confirm Password</strong></label>
+           <input type="password" class="form-control" id="" name="confPass" placeholder="Enter Password" required>
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>upload image</strong></label>
+           <input type="file" name="studentImg">
+         </div>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><strong>upload signature</strong></label>
+           <input type="file" name="studentSign">
+         </div>
+         <div class="g-recaptcha" data-sitekey="6Le-2J4mAAAAAGThRVMljWgKj9pxc2ZY8OJysR8W"></div>
+         <br />
+         <button type="submit" class="btn btn-primary btn-custum-class">Submit</button>
+         <a href="login">LogIn</a>
+    </form>
+    
+</div>
+
+{% endblock body %}
+{% block script %}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock script %}
