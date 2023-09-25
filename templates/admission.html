@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Admission{% endblock title %}
+
+{% block css %}
+<style>
+  .div-btn a{
+    margin:10px;
+  }
+</style>
+
+{% endblock css %}
+
+
+{% block body %}
+<div class="container text-center">
+  <h1>Admission</h1>
+</div>
+<div>
+  <marquee behavior="" direction="left">
+    <h5>Admission is open for session 2023-2024.</h5>
+  </marquee>
+</div>
+
+<div class="contianer mx-2">
+    <p><strong>Steps to apply</strong></p>
+    <ul class="">
+      <li>Register yourself to this website.</li>
+      <li>Login using User Name & Password.</li>
+      <li>Select streame & course, and upload document regarding that.</li>
+      <li>Within 24 hrs your document will be varified and payment portal will be unlock.</li>
+      <li>Make payment and your seat will be reserved.</li>
+    </ul>
+</div>
+
+<div class="container d-flex flex-wrap justify-content-center div-btn">
+     <a class="btn btn-success btn-lg btn-block" href="register" role="button">Register</a>
+     <a class="btn btn-success btn-lg btn-block" href="login" role="button">Login</a>
+</div>
+
+
+
+{% endblock body %}

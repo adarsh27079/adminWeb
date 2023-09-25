@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+ .form-outer-div{
+  max-width:45rem;
+  box-shadow:1px 1px 8px 3px #e2dfe6;
+  border-radius:10px;
+  padding:10px;
+} 
+</style>
+
+{% endblock css %}
+
+{% block body %}
+
+<div class=" container form-outer-div">
+   <header class="text-center mb-4">
+      <h4>Login-In</h4>
+      <hr />
+   </header>
+     <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+         <div class="form-group">
+           <label for=""><strong>Email Id</strong></label>
+           <input type="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter your registered email id " name="loginEmail" required>
+         </div> 
+         <div class="form-group">
+           <label for=""><strong>Password</strong></label>
+           <input type="password" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Password" name="loginPass" required>
+         </div>
+         <button type="submit" class="btn btn-primary btn-custum-class mb-3">Submit</button>
+         <a href="register">Register</a>
+    </form>
+    
+</div>
+
+
+
+{% endblock body %}

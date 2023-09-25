@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+
+{% block title %}MY Account{% endblock title %}
+
+<!-- ========css block starts========== -->
+{% block css %}
+<style>
+ .mainDiv{
+    max-width:30rem;
+   
+ }
+ .outerDiv div{
+   margin-bottom:20px;
+ }
+ 
+ .studentImg img{
+   width:10rem;
+   height:10rem;
+   border-radius:80px 80px;
+ }
+ div > p:nth-child(2){
+    border-bottom:1px solid black;
+  }
+  .Signature img{
+    width:10rem;
+    height:4rem;
+  }
+</style>
+
+{% endblock css %}
+
+<!-- =======================body block starts======================= -->
+{% block body %}
+<!-- ++++++++++++++django message+++++++++++++++++++ -->
+
+{% if messages %}
+<div class="alert alert-danger alert-dismissible fade show message" role="alert">
+        {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}> <strong>{{ message }}</strong></p>
+        {% endfor %}
+</div>
+{% endif %}
+
+
+
+<div class="container text-center mainDiv my-4">
+ <div class="outerDiv text-center my-4 pd-4">
+   <h2>My Account</h2>
+   <div class="studentImg">
+     <img src="{{ profile_pic_url }}" alt="Profile Pic"/>
+   </div>
+   <br />
+   <div>
+     <p><strong>Name:</strong></p>
+     <p class="" name="Name" >{{ studentName }}</p>
+   </div>
+   <div>
+     <p><strong>Father's Name:</strong></p>
+     <p class="" name="fName" >{{ fathersName }}</p>
+   </div>
+   <div>
+     <p><strong>Mother's Name:</strong></p>
+     <p class="" name="Mname" >{{ mothersName }}</p>
+   </div>
+   <div>
+     <p><strong>Course Applied for:</strong></p>
+     <p class="" name="dob" >{{ course }}</p>
+   </div>
+   </div>
+   <div>
+     <p><strong>Date Of Birth:</strong></p>
+     <p class="" name="dob" >{{ dob }}</p>
+   </div>
+   <div>
+     <p><strong>Gender:</strong></p>
+     <p class="" name="gender" >{{ gender }}</p>
+   </div>
+   <div>
+     <p><strong>Identity Given:</strong></p>
+     <p class="" name="identity" >{{  identity }}</p>
+   </div>
+   <div>
+     <p><strong>Identity Number:</strong></p>
+     <p class="" name="identityNum" >{{ identityNum }}</p>
+   </div>
+   <div>
+     <p><strong>Contact Number:</strong></p>
+     <p class="" name="cNum" >{{ mobileNum }}</p>
+   </div>
+   <div>
+     <p><strong>Email Id:</strong></p>
+     <p class="" name="emailId" >{{ email }}</p>
+   </div>
+   <div class="Signature">
+     <p><strong>Signature:</strong></p>
+     <img src="{{ sign_pic_url }}" alt="your Signature"/>
+   </div>   
+ </div>
+</div>
+<br>
+<br>
+<div><a href="logout">Logout</a></div>
+
+{% endblock body %}
+
+{% block js %}
+<!-- Add this code at the bottom of your template, just before the closing </body> tag -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+{% endblock js %}
